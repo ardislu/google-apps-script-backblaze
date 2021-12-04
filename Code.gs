@@ -1,11 +1,11 @@
-const PROPERTIES = PropertiesService.getScriptProperties();
-const FILE_ID = PROPERTIES.getProperty('FILE_ID');
-const BACKBLAZE_ID = PROPERTIES.getProperty('BACKBLAZE_ID');
-const BACKBLAZE_KEY = PROPERTIES.getProperty('BACKBLAZE_KEY');
-
 function uploadToBackblaze() {
+  const properties = PropertiesService.getScriptProperties();
+  const fileId = properties.getProperty('FILE_ID');
+  const backblazeId = properties.getProperty('BACKBLAZE_ID');
+  const backblazeKey = properties.getProperty('BACKBLAZE_KEY');
+
   // b2_authorize_account
-  const credentials = `Basic ${Utilities.base64Encode(`${BACKBLAZE_ID}:${BACKBLAZE_KEY}`)}`;
+  const credentials = `Basic ${Utilities.base64Encode(`${backblazeId}:${backblazeKey}`)}`;
   const authOptions = {
     'headers': {
       'Authorization': credentials
@@ -33,7 +33,7 @@ function uploadToBackblaze() {
   const uploadUrl = getUploadUrlJson['uploadUrl'];
 
   // b2_upload_file
-  const file = DriveApp.getFileById(FILE_ID);
+  const file = DriveApp.getFileById(fileId);
   const fileName = file.getName();
   const mimeType = file.getMimeType();
   const contentLength = file.getSize();
