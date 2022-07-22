@@ -18,12 +18,10 @@ This code assumes the file you want to upload to Backblaze has **already been up
 
 5. Create a [new GAS project](https://script.new).
 6. Copy `Code.gs` from this repository into the GAS project.
-7. Create the following [Google Apps Script properties](https://developers.google.com/apps-script/guides/properties) (environment variables):
+7. Create the following [Google Apps Script properties](https://developers.google.com/apps-script/guides/properties) (environment variables) under `Project Settings > Script Properties`:
 - `FILE_ID` - the Google Drive file ID from step 2.
 - `BACKBLAZE_ID` - the Backblaze application key ID (`keyId`) from step 4.
 - `BACKBLAZE_KEY` - the Backblaze application key (`applicationKey`) from step 4.
-
-**NOTE**: if you can't find where to create GAS properties, switch to the legacy UI (Click `Use legacy editor` on the top right side of the UI) and go to `File > Project properties > Script properties`.
 
 ## Usage
 
